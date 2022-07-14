@@ -1,0 +1,136 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: F2Learn\n"
+"POT-Creation-Date: 2021-12-21 10:59+0100\n"
+"PO-Revision-Date: 2021-12-21 10:59+0100\n"
+"Last-Translator: \n"
+"Language-Team: Jorge\n"
+"Language: es_ES\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.4.2\n"
+"X-Poedit-Basepath: ../../..\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: app/views/partials/menu.part.php:14 app/views/partials/menu.part.php:149
+msgid "Ask a Question"
+msgstr "Haz una pregunta"
+
+#: app/views/partials/menu.part.php:20 app/views/partials/menu.part.php:155
+msgid "English"
+msgstr "Inglés"
+
+#: app/views/partials/menu.part.php:21 app/views/partials/menu.part.php:156
+msgid "Spanish"
+msgstr "Español"
+
+#: app/views/partials/menu.part.php:23 app/views/partials/menu.part.php:158
+msgid "Login"
+msgstr "Acceder"
+
+#: app/views/partials/menu.part.php:24 app/views/partials/menu.part.php:159
+msgid "Register"
+msgstr "Registrarse"
+
+#: app/views/partials/menu.part.php:26 app/views/partials/menu.part.php:161
+msgid "Exit"
+msgstr "Salir"
+
+#: app/views/partials/menu.part.php:72 app/views/partials/menu.part.php:208
+msgid "Home"
+msgstr "Inicio"
+
+#: app/views/partials/menu.part.php:73 app/views/partials/menu.part.php:209
+msgid "About"
+msgstr "Acerca de"
+
+#: app/views/partials/menu.part.php:75 app/views/partials/menu.part.php:212
+msgid "About Us"
+msgstr "Sobre Nosotros"
+
+#: app/views/partials/menu.part.php:76 app/views/partials/menu.part.php:214
+msgid "Contact Us"
+msgstr "Contáctanos"
+
+#: app/views/partials/menu.part.php:78 app/views/partials/menu.part.php:218
+msgid "FAQ's"
+msgstr "Preguntas Frecuentes"
+
+#: app/views/partials/menu.part.php:79 app/views/partials/menu.part.php:220
+msgid "Portfolio"
+msgstr "Portafolio"
+
+#: app/views/partials/menu.part.php:83 app/views/partials/menu.part.php:98
+#: app/views/partials/menu.part.php:227 app/views/partials/menu.part.php:245
+msgid "Courses"
+msgstr "Cursos"
+
+#: app/views/partials/menu.part.php:85 app/views/partials/menu.part.php:230
+msgid "Our Courses"
+msgstr "Nuestros Cursos"
+
+#: app/views/partials/menu.part.php:86 app/views/partials/menu.part.php:232
+msgid "Membership"
+msgstr "Suscripción"
+
+#: app/views/partials/menu.part.php:90 app/views/partials/menu.part.php:236
+msgid "Blog"
+msgstr "Blog"
+
+#: app/views/partials/menu.part.php:91 app/views/partials/menu.part.php:237
+msgid "Articles"
+msgstr "Artículos"
+
+#: app/views/partials/menu.part.php:94 app/views/partials/menu.part.php:241
+msgid "Profile"
+msgstr "Perfil"
+
+#: app/views/partials/menu.part.php:95 app/views/partials/menu.part.php:242
+msgid "Dashboard"
+msgstr "Panel"
+
+#: app/views/partials/menu.part.php:107 app/views/partials/menu.part.php:254
+msgid "Gallery Images"
+msgstr "Galería de imágenes"
+
+#: app/views/partials/menu.part.php:115 app/views/partials/menu.part.php:262
+msgid "Blog Posts"
+msgstr "Entradas de blog"
+
+#: app/views/partials/menu.part.php:116 app/views/partials/menu.part.php:263
+msgid "Partners"
+msgstr "Asociados"
+
+#: app/views/partials/menu.part.php:117 app/views/partials/menu.part.php:264
+msgid "Users"
+msgstr "Usuarios"
+
+#: app/views/partials/slider.part.php:77 app/views/partials/slider.part.php:242
+msgid "Welcome To University"
+msgstr "Bienvenido a la Universidad"
+
+#: app/views/partials/slider.part.php:99 app/views/partials/slider.part.php:265
+msgid "Better Education For You"
+msgstr "Una mejor educación para ti"
+
+#: app/views/partials/slider.part.php:121
+#: app/views/partials/slider.part.php:287
+msgid ""
+"Gain skills with online courses, certificates and degrees offered by the "
+"world's leading universities. Take the next step towards your personal and "
+"professional goals with F2Learn."
+msgstr ""
+"Adquiere conocimientos con los cursos, certificados y títulos en línea "
+"ofrecidos por las principales universidades del mundo. Da el siguiente paso "
+"hacia tus objetivos personales y profesionales con F2Learn."
+
+#: app/views/partials/slider.part.php:143
+msgid "READ MORE"
+msgstr "LEER MÁS"
+
+#: app/views/partials/slider.part.php:165
+#: app/views/partials/slider.part.php:330
+msgid "CONTACT US"
+msgstr "CONTÁCTANOS"

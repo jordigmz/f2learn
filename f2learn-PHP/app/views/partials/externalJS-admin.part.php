@@ -1,0 +1,22 @@
+<!-- External JavaScripts -->
+<script src="/assets/admin/js/jquery.min.js"></script>
+<script src="/assets/admin/vendors/bootstrap/js/popper.min.js"></script>
+<script src="/assets/admin/vendors/bootstrap/js/bootstrap.min.js"></script>
+<script src="/assets/admin/vendors/bootstrap-select/bootstrap-select.min.js"></script>
+<script src="/assets/admin/vendors/bootstrap-touchspin/jquery.bootstrap-touchspin.js"></script>
+<script src="/assets/admin/vendors/magnific-popup/magnific-popup.js"></script>
+<script src="/assets/admin/vendors/counter/waypoints-min.js"></script>
+<script src="/assets/admin/vendors/counter/counterup.min.js"></script>
+<script src="/assets/admin/vendors/imagesloaded/imagesloaded.js"></script>
+<script src="/assets/admin/vendors/masonry/masonry.js"></script>
+<script src="/assets/admin/vendors/masonry/filter.js"></script>
+<script src="/assets/admin/vendors/owl-carousel/owl.carousel.js"></script>
+<script src='/assets/admin/vendors/scroll/scrollbar.min.js'></script>
+<script src="/assets/admin/js/functions.js"></script>
+<script src="/assets/admin/vendors/chart/chart.min.js"></script>
+<script src="/assets/admin/js/admin.js"></script>
+<script src='/assets/admin/vendors/calendar/moment.min.js'></script>
+<script src='/assets/admin/vendors/calendar/fullcalendar.js'></script>
+<script src="/assets/admin/vendors/summernote/summernote.js"></script>
+<script src="/assets/admin/vendors/file-upload/imageuploadify.min.js"></script>
+<!--<script src='/assets/admin/vendors/switcher/switcher.js'></script>-->
