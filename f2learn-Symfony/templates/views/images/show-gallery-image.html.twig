@@ -1,0 +1,13 @@
+{% extends 'layouts/layout-admin.html.twig' %}
+
+{% block body %}
+    <div class="content-block">
+        <div class="col-lg-12 col-xl-12 mb-4">
+            <a href="{{ path('gallery') }}"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back to Gallery</a>
+        </div>
+        <!-- Gallery Images  -->
+        <div class="container">
+            <img src="{{ asset('assets/images/portfolio/' ~ image.name ) }}" alt="{{ image.description }}" title="{{ image.description }}" />
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'layouts/layout.html.twig' %}
+
+{% block menu %}{% endblock %}
+
+{% block body %}
+<div class="page-wraper">
+    <div id="loading-icon-bx"></div>
+    <div class="account-form">
+        <div class="account-head" style="background-image:url({{ asset('assets/images/background/bg2.jpg') }});">
+            <a href="{{ path('index') }}"><img src="{{ asset('assets/images/logo-white.png') }}" alt=""></a>
+        </div>
+        <div class="account-form-inner">
+            <div class="account-container">
+                <div class="error-page">
+                    <h3>Ooopps :(</h3>
+                    <h2 class="error-title">Error 505</h2>
+                    <h5>Internal sever error.</h5>
+                    <div class="">
+                        <a href="{{ path('index') }}" class="btn outline black">Back To Home</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

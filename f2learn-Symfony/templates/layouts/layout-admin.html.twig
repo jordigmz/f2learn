@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    {% include 'parts/stylesheets-admin.part.html.twig' %}
+{% endblock %}
+
+{% block bodytag %}<body class="ttr-opened-sidebar ttr-pinned-sidebar">{% endblock %}
+
+{% block menu %}
+    {% include 'parts/menu-admin.part.html.twig' %}
+{% endblock %}
+
+{% block body %}{% endblock %}
+
+{% block footer %}
+        </div>
+    </main>
+    <div class="ttr-overlay"></div>
+
+    {% include 'parts/externalJS-admin.part.html.twig' %}
+{% endblock %}

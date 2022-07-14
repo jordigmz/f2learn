@@ -1,0 +1,243 @@
+{% extends 'layouts/layout.html.twig' %}
+
+{% block body %}
+    <div class="content-block">
+        <!-- About Us -->
+        <div class="section-area section-sp1">
+            <div class="container">
+                 <div class="row">
+                    <div class="col-lg-3 col-md-4 col-sm-12 m-b30">
+                        <div class="profile-bx text-center">
+                            <div class="user-profile-thumb">
+                                <img src="{{ asset('/assets/images/profile/' ~ app.user.image) }}" alt=""/>
+                            </div>
+                            <div class="profile-info">
+                                <h4>{{ app.user.name|capitalize}}</h4>
+                                <span>{{ app.user.email }}</span>
+                            </div>
+                            <div class="profile-social">
+                                <ul class="list-inline m-a0">
+                                    <li><a href="https://twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                                    <li><a href="https://es-es.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                                    <li><a href="https://www.instagram.com/" target="_blank"><i class="fa fa-instagram"></i></a></li>
+                                    <li><a href="https://es.linkedin.com/" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+                                </ul>
+                            </div>
+                            <div class="profile-tabnav">
+                                <ul class="nav nav-tabs">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" data-toggle="tab" href="#courses"><i class="ti-pencil-alt"></i>My Courses</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" data-toggle="tab" href="#edit-profile"><i class="ti-pencil-alt"></i>Edit Profile</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" data-toggle="tab" href="#change-image"><i class="ti-image"></i>Change Image</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" data-toggle="tab" href="#change-password"><i class="ti-lock"></i>Change Password</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-9 col-md-8 col-sm-12 m-b30">
+                        <div class="profile-content-bx">
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="courses">
+                                    <div class="profile-head">
+                                        <h3>My Courses</h3>
+                                    </div>
+                                    <div class="courses-filter">
+                                        <div class="clearfix">
+                                            <ul id="masonry" class="ttr-gallery-listing magnific-image row">
+                                                {% for course in courses %}
+                                                    <li class="action-card col-xl-4 col-lg-6 col-md-12 col-sm-6">
+                                                        <div class="cours-bx">
+                                                            <div class="action-box">
+                                                                <img src="{{ asset('assets/images/courses/' ~ course.image ) }}" alt="">
+                                                                <a href="{{ path('course-details', { 'id': course.id }) }}" class="btn">Read More</a>
+                                                            </div>
+                                                            <div class="info-bx text-center">
+                                                                <h5><a href="{{ path('course-details', { 'id': course.id }) }}">{{ course.title }}</a></h5>
+                                                                <span>{{ course.level.name|capitalize }}</span>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                {% endfor %}
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="edit-profile">
+                                    <div class="profile-head">
+                                        <h3>Edit Profile</h3>
+                                    </div>
+                                    {{ form_start(formUser, {
+                                        'attr': {
+                                            'class': 'edit-profile m-b30'
+                                        }
+                                    }) }}
+                                    <div class="">
+                                        <div class="form-group row">
+                                            <div class="col-12 col-sm-9 col-md-9 col-lg-10 ml-auto">
+                                                <h3>Profile details</h3>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            {{ form_label(formUser.name, 'Name', {
+                                                'label_attr': {
+                                                    'class': 'col-12 col-sm-3 col-md-3 col-lg-2 col-form-label'
+                                                }
+                                            }) }}
+                                            <div class="col-12 col-sm-9 col-md-9 col-lg-7">
+                                                {{ form_widget(formUser.name, {
+                                                    'attr': {
+                                                        'class': 'form-control'
+                                                    }
+                                                }) }}
+                                            </div>
+                                            <span style="color: #dc3545; font-size: 14px;">{{ form_errors(formUser.name) }}</span>
+                                        </div>
+                                        <div class="form-group row">
+                                            {{ form_label(formUser.email, 'Email', {
+                                                'label_attr': {
+                                                    'class': 'col-12 col-sm-3 col-md-3 col-lg-2 col-form-label'
+                                                }
+                                            }) }}
+                                            <div class="col-12 col-sm-9 col-md-9 col-lg-7">
+                                                {{ form_widget(formUser.email, {
+                                                    'attr': {
+                                                        'class': 'form-control'
+                                                    }
+                                                }) }}
+                                            </div>
+                                            <span style="color: #dc3545; font-size: 14px;">{{ form_errors(formUser.email) }}</span>
+                                        </div>
+                                        <div class="form-group row">
+                                            {{ form_label(formUser.username, 'Username', {
+                                                'label_attr': {
+                                                    'class': 'col-12 col-sm-3 col-md-3 col-lg-2 col-form-label'
+                                                }
+                                            }) }}
+                                            <div class="col-12 col-sm-9 col-md-9 col-lg-7">
+                                                {{ form_widget(formUser.username, {
+                                                    'attr': {
+                                                        'class': 'form-control'
+                                                    }
+                                                }) }}
+                                            </div>
+                                            <span style="color: #dc3545; font-size: 14px;">{{ form_errors(formUser.username) }}</span>
+                                        </div>
+                                        <div class="">
+                                            <div class="">
+                                                <div class="row">
+                                                    <div class="col-12 col-sm-3 col-md-3 col-lg-2">
+                                                    </div>
+                                                    <div class="col-12 col-sm-9 col-md-9 col-lg-7">
+                                                        <button class="btn button-md">{{ button_label|default('Save Changes') }}</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {{ form_end(formUser) }}
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="change-image">
+                                    <div class="profile-head">
+                                        <h3>Change Image</h3>
+                                    </div>
+                                    {{ form_start(formImage, {
+                                        'attr': {
+                                            'class': 'edit-profile m-b30',
+                                            'enctype': 'multipart/form-data'
+                                        }
+                                    }) }}
+                                    <div class="">
+                                        <div class="form-group row">
+                                            <div class="col-12 col-sm-8 col-md-8 col-lg-9 ml-auto">
+                                                <h3>Image</h3>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            {{ form_label(formImage.image, 'Image', {
+                                                'label_attr': {
+                                                    'class': 'col-12 col-sm-3 col-md-3 col-lg-2 col-form-label'
+                                                }
+                                            }) }}
+                                            <div class="col-12 col-sm-9 col-md-9 col-lg-7">
+                                                {{ form_widget(formImage.image, {
+                                                    'attr': {
+                                                        'class': 'form-control'
+                                                    }
+                                                }) }}
+                                            </div>
+                                            <span style="color: #dc3545; font-size: 14px;">{{ form_errors(formImage.image) }}</span>
+                                        </div>
+                                        <div class="">
+                                            <div class="">
+                                                <div class="row">
+                                                    <div class="col-12 col-sm-3 col-md-3 col-lg-2">
+                                                    </div>
+                                                    <div class="col-12 col-sm-9 col-md-9 col-lg-7">
+                                                        <button class="btn button-md">{{ button_label|default('Save Changes') }}</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {{ form_end(formImage) }}
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="change-password">
+                                    <div class="profile-head">
+                                        <h3>Change Password</h3>
+                                    </div>
+                                    {{ form_start(formPassword, {
+                                        'attr': {
+                                            'class': 'edit-profile m-b30'
+                                        }
+                                    }) }}
+                                    <div class="">
+                                        <div class="form-group row">
+                                            <div class="col-12 col-sm-8 col-md-8 col-lg-9 ml-auto">
+                                                <h3>Password</h3>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            {{ form_label(formPassword.password, 'New Password', {
+                                                'label_attr': {
+                                                    'class': 'col-12 col-sm-4 col-md-4 col-lg-3 col-form-label'
+                                                }
+                                            }) }}
+                                            <div class="col-12 col-sm-9 col-md-9 col-lg-7">
+                                                {{ form_widget(formPassword.password, {
+                                                    'attr': {
+                                                        'class': 'form-control'
+                                                    }
+                                                }) }}
+                                            </div>
+                                            <span style="color: #dc3545; font-size: 14px;">{{ form_errors(formPassword.password) }}</span>
+                                        </div>
+                                        <div class="">
+                                            <div class="">
+                                                <div class="row">
+                                                    <div class="col-12 col-sm-3 col-md-3 col-lg-2">
+                                                    </div>
+                                                    <div class="col-12 col-sm-9 col-md-9 col-lg-7">
+                                                        <button class="btn button-md">{{ button_label|default('Save Changes') }}</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {{ form_end(formPassword) }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- contact area END -->
+{% endblock %}

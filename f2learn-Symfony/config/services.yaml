@@ -1,0 +1,50 @@
+# This file is the entry point to configure your own services.
+# Files in the packages/ subdirectory configure your dependencies.
+
+# Put parameters here that don't need to change on each machine where the app is deployed
+# https://symfony.com/doc/current/best_practices.html#use-parameters-for-application-configuration
+parameters:
+    gallery_directory: '%kernel.project_dir%/public/assets/images/gallery'
+    portfolio_directory: '%kernel.project_dir%/public/assets/images/portfolio'
+    articulos_directory: '%kernel.project_dir%/public/assets/images/articulos'
+    blog_directory: '%kernel.project_dir%/public/assets/images/blog'
+    courses_directory: '%kernel.project_dir%/public/assets/images/courses'
+    partners_directory: '%kernel.project_dir%/public/assets/images/partners'
+    profile_directory: '%kernel.project_dir%/public/assets/images/profile'
+services:
+    # default configuration for services in *this* file
+    _defaults:
+        autowire: true      # Automatically injects dependencies in your services.
+        autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+
+    # makes classes in src/ available to be used as services
+    # this creates a service per class whose id is the fully-qualified class name
+    App\:
+        resource: '../src/'
+        exclude:
+            - '../src/DependencyInjection/'
+            - '../src/Entity/'
+            - '../src/Kernel.php'
+            - '../src/Tests/'
+
+    # add more service definitions when explicit configuration is needed
+    # please note that last definitions always *replace* previous ones
+
+    f2learn.bll.baseBLL:
+        class: App\BLL\BaseBLL
+        abstract: true
+        arguments:
+            - '@doctrine.orm.entity_manager'
+            - '@validator'
+            - '@Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface'
+            - '@security.token_storage'
+
+    f2learn.bll.coursesBLL:
+        class: App\BLL\CoursesBLL
+        parent: f2learn.bll.baseBLL
+        calls:
+            - setRequestStack: ['@Symfony\Component\HttpFoundation\RequestStack']
+
+    f2learn.bll.usersBLL:
+        class: App\BLL\UsersBLL
+        parent: f2learn.bll.baseBLL

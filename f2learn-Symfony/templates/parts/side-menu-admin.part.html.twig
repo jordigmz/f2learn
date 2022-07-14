@@ -1,0 +1,99 @@
+<!-- Left sidebar menu start -->
+<div class="ttr-sidebar">
+    <div class="ttr-sidebar-wrapper content-scroll">
+        <!-- side menu logo start -->
+        <div class="ttr-sidebar-logo">
+            <a href="#"><img alt="" src="{{ asset('assets/admin/images/logo.png') }}" width="122" height="27"></a>
+            <div class="ttr-sidebar-toggle-button">
+                <i class="ti-arrow-left"></i>
+            </div>
+        </div>
+        <!-- side menu logo end -->
+        <!-- sidebar menu start -->
+        <nav class="ttr-sidebar-navi">
+            <ul>
+                <!--<li>
+                    <a href="<?= f2learn\app\utils\Utils::esOpcionMenuActiva('dashboard') ? '#' : '/dashboard'?>" class="ttr-material-button <?= f2learn\app\utils\Utils::esOpcionMenuActiva('dashboard') ? 'active' : ''?>">
+                        <span class="ttr-icon"><i class="ti-home"></i></span>
+                        <span class="ttr-label">Dashboard</span>
+                    </a>
+                </li>-->
+                {% if ('ADMIN' in app.user.roles[0]) %}
+                    <li>
+                        <a href="{% if (path('add-course') in app.request.pathInfo) %}#{% else %}{{ path('add-course') }}{% endif %}" class="ttr-material-button {% if (path('add-course') in app.request.pathInfo) %}active{% endif %}">
+                            <span class="ttr-icon"><i class="ti-layout-accordion-list"></i></span>
+                            <span class="ttr-label">Courses</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% if (path('gallery') in app.request.pathInfo) %}#{% else %}{{ path('gallery') }}{% endif %}" class="ttr-material-button {% if (path('gallery') in app.request.pathInfo) %}active{% endif %}">
+                            <span class="ttr-icon"><i class="ti-image"></i></span>
+                            <span class="ttr-label">Gallery Images</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% if (path('blog-posts') in app.request.pathInfo) %}#{% else %}{{ path('blog-posts') }}{% endif %}" class="ttr-material-button {% if (path('blog-posts') in app.request.pathInfo) %}active{% endif %}">
+                            <span class="ttr-icon"><i class="ti-pin-alt"></i></span>
+                            <span class="ttr-label">Blog Posts</span>
+                        </a>
+                    </li>
+                    <!--<li>
+                        <a href="#" class="ttr-material-button">
+                            <span class="ttr-icon"><i class="ti-email"></i></span>
+                            <span class="ttr-label">Mailbox</span>
+                            <span class="ttr-arrow-icon"><i class="fa fa-angle-down"></i></span>
+                        </a>
+                        <ul>
+                            <li>
+                                <a href="<?= f2learn\app\utils\Utils::esOpcionMenuActiva('mailbox') ? '#' : '/mailbox'?>" class="ttr-material-button"><span class="ttr-label">Mail Box</span></a>
+                            </li>
+                            <li>
+                                <a href="<?= f2learn\app\utils\Utils::esOpcionMenuActiva('mailbox-compose') ? '#' : '/mailbox-compose'?>" class="ttr-material-button"><span class="ttr-label">Compose</span></a>
+                            </li>
+                            <li>
+                                <a href="<?= f2learn\app\utils\Utils::esOpcionMenuActiva('mailbox-read') ? '#' : '/mailbox-read'?>" class="ttr-material-button"><span class="ttr-label">Mail Read</span></a>
+                            </li>
+                        </ul>
+                    </li>-->
+                    <li>
+                        <a href="{% if (path('partners') in app.request.pathInfo) %}#{% else %}{{ path('partners') }}{% endif %}" class="ttr-material-button {% if (path('partners') in app.request.pathInfo) %}active{% endif %}">
+                            <span class="ttr-icon"><i class="ti-pie-chart"></i></span>
+                            <span class="ttr-label">Partners</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% if (path('users') in app.request.pathInfo) %}#{% else %}{{ path('users') }}{% endif %}" class="ttr-material-button {% if (path('users') in app.request.pathInfo) %}active{% endif %}">
+                            <span class="ttr-icon"><i class="ti-user"></i></span>
+                            <span class="ttr-label">Users</span>
+                        </a>
+                    </li>
+                {% endif %}
+                <li>
+                    <a href="{% if (path('articles') in app.request.pathInfo) %}#{% else %}{{ path('articles') }}{% endif %}" class="ttr-material-button {% if (path('articles') in app.request.pathInfo) %}active{% endif %}">
+                        <span class="ttr-icon"><i class="ti-shopping-cart"></i></span>
+                        <span class="ttr-label">Articles</span>
+                    </a>
+                </li>
+                <!--<li>
+                    <a href="#" class="ttr-material-button <?= f2learn\app\utils\Utils::existeOpcionMenuActivaEnArray(['calendar', 'list-calendar']) ? 'active' : ''?>">
+                        <span class="ttr-icon"><i class="ti-calendar"></i></span>
+                        <span class="ttr-label">Calendar</span>
+                        <span class="ttr-arrow-icon"><i class="fa fa-angle-down"></i></span>
+                    </a>
+                    <ul>
+                        <li>
+                            <a href="<?= f2learn\app\utils\Utils::esOpcionMenuActiva('calendar') ? '#' : '/calendar'?>" class="ttr-material-button <?= f2learn\app\utils\Utils::esOpcionMenuActiva('calendar') ? 'active' : ''?>"><span class="ttr-label">Calendar</span></a>
+                        </li>
+                        <li>
+                            <a href="<?= f2learn\app\utils\Utils::esOpcionMenuActiva('list-calendar') ? '#' : '/list-calendar'?>" class="ttr-material-button <?= f2learn\app\utils\Utils::esOpcionMenuActiva('list-calendar') ? 'active' : ''?>"><span class="ttr-label">List View</span></a>
+                        </li>
+                    </ul>
+                </li>-->
+                <li class="ttr-seperate"></li>
+            </ul>
+            <!-- sidebar menu end -->
+        </nav>
+        <!-- sidebar menu end -->
+    </div>
+</div>
+<!-- Left sidebar menu end -->

@@ -1,0 +1,34 @@
+<table class="table table-hover" style="margin-bottom: 80px;">
+    <thead>
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">Image</th>
+        <th scope="col">Category</th>
+        <th scope="col">Description</th>
+        <th scope="col"></th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for image in images %}
+            <tr id="galleryTable">
+                <th>{{ image.id }}</th>
+                <td><a href="{{ path('show-image', { id: image.id }) }}">
+                        <img src="{{ asset('assets/images/portfolio/' ~ image.name ) }}"
+                         alt="{{ image.description }}"
+                         title="{{ image.description }}" width="60px" />
+                    </a>
+                </td>
+                <td>{{ image.category.name|capitalize }}</td>
+                <td>{{ image.description }}</td>
+                <td style="display: flex; flex-direction: row;">
+                    <a href="{{ path('gallery_edit', {'id': image.id}) }}" class="btn btn-warning mr-1" style="background-color: #007bff; color: white;"><i class="fa fa-edit" aria-hidden="true"></i></a>
+                    <form method="post" action="{{ path('gallery_delete', {'id': image.id}) }}" onsubmit="return confirm('Are you sure you want to delete this image?');">
+                        <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ image.id) }}">
+                        <button class="btn btn-danger" style="background-color: #dc3545; color: white;"><i class="fa fa-trash-o" aria-hidden="true"></i>
+                        </button>
+                    </form>
+                </td>
+            </tr>
+    {% endfor %}
+    </tbody>
+</table>

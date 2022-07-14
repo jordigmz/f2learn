@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="author" content="Jorge Gómez Tortosa" />
+        <meta name="description" content="F2Learn | Education & Courses" />
+
+        <link rel="icon" href="{{ asset('assets/images/favicon.ico') }}" type="image/x-icon" />
+        <link rel="shortcut icon" type="image/x-icon" href="{{ asset('assets/images/favicon.png') }}" />
+
+        <title>{% block title %}F2Learn - Education & Courses{% endblock %}</title>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        {% block stylesheets %}{% endblock %}
+
+        {% block javascripts %}
+            <script src="{{ asset('assets/js/delete.js') }}"></script>
+            <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        {% endblock %}
+    </head>
+    {% block bodytag %}<body id="bg">{% endblock %}
+        {% block menu %}{% endblock %}
+
+        {% block body %}{% endblock %}
+
+        {% block footer %}{% endblock %}
+    </body>
+</html>

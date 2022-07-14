@@ -1,0 +1,74 @@
+{% extends 'layouts/layout.html.twig' %}
+
+{% block menu %}{% endblock %}
+
+{% block body %}
+    <div class="page-wraper">
+        <div id="loading-icon-bx"></div>
+        <div class="account-form">
+            <div class="account-head" style="background-image:url({{ asset('assets/images/background/bg2.jpg') }});">
+                <a href="{{ path('index') }}"><img src="{{ asset('assets/images/logo-white.png') }}" alt=""></a>
+            </div>
+            <div class="account-form-inner">
+                <div class="account-container">
+                    <div class="heading-bx left">
+                        <h2 class="title-head">Login to your <span>Account</span></h2>
+                        <p>Don't have an account? <a href="{{ path('register') }}">Create one here</a></p>
+                    </div>
+                    {% if error %}
+                        <div style="color: #dc3545;">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                    {% endif %}
+                    {% if verify_email_error is defined %}
+                        <div style="color: #dc3545;">{{ verify_email_error.messageKey|trans(verify_email_error.messageData, 'security') }}</div>
+                    {% endif %}
+                    {% if success is defined %}
+                        <div style="color: #198754;">{{ success.messageKey|trans(success.messageData, 'security') }}</div>
+                    {% endif %}
+                    <form class="contact-bx" action="{{ path('login') }}" method="post">
+                        <div class="row placeani">
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" id="username" name="_username" value="{{ last_username }}" placeholder="Username *" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <input type="password" class="form-control" id="password" name="_password" placeholder="Password *" />
+                                    </div>
+                                </div>
+                            </div>
+                            <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+                            {# If you want to control the URL the user is redirected to on success
+                            <input type="hidden" name="_target_path" value="/account"/> #}
+                            {#<div class="col-lg-12">
+                            <div class="form-group form-forget">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customControlAutosizing">
+                                    <label class="custom-control-label" for="customControlAutosizing">Remember me</label>
+                                </div>
+                                <a href="{{ path('forget-password') }}" class="ml-auto">Forgot Password?</a>
+                            </div>
+                        </div>#}
+                            <div class="col-lg-12 m-b30">
+                                <button name="submit" type="submit" value="Submit" class="btn button-md">Login</button>
+                            </div>
+                            <div class="col-lg-12">
+                                <a href="{{ path('index') }}"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back to Home</a>
+                            </div>
+                            <!--<div class="col-lg-12">
+                                <h6>Login with Social media</h6>
+                                <div class="d-flex">
+                                    <a class="btn flex-fill m-r5 facebook" href="#"><i class="fa fa-facebook"></i>Facebook</a>
+                                    <a class="btn flex-fill m-l5 google-plus" href="#"><i class="fa fa-google-plus"></i>Google Plus</a>
+                                </div>
+                            </div>-->
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

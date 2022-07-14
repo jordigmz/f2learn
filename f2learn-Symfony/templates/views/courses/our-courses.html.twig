@@ -1,0 +1,37 @@
+{% extends 'layouts/layout.html.twig' %}
+
+{% block body %}
+    <div class="content-block">
+        <!-- About Us -->
+        <div class="section-area section-sp1">
+            <div class="container">
+                <div class="row w-100 mb-4" style="justify-content: right;">
+                    <form action="{{ path('our-courses-search') }}" method="post" class="form-inline my-2 my-lg-0">
+                        <input class="form-control mr-sm-2" type="search" id="search" name="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+                    </form>
+                </div>
+                 <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="row">
+                            {% for course in courses %}
+                                <div class="col-md-6 col-lg-4 col-sm-6 m-b30">
+                                    <div class="cours-bx">
+                                        <div class="action-box">
+                                            <img src="{{ asset('assets/images/courses/' ~ course.image ) }}" alt="">
+                                            <a href="{{ path('course-details', { 'id': course.id }) }}" class="btn">Read More</a>
+                                        </div>
+                                        <div class="info-bx text-center">
+                                            <h5><a href="{{ path('course-details', { 'id': course.id }) }}">{{ course.title }}</a></h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- contact area END -->
+{% endblock %}

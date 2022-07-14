@@ -1,0 +1,45 @@
+{% extends 'layouts/layout-admin.html.twig' %}
+
+{% block body %}
+    <div class="row">
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Image</th>
+            <th scope="col">Name</th>
+            <th scope="col">Username</th>
+            <th scope="col">Email</th>
+            <th scope="col">Role</th>
+            <th scope="col">Privileges</th>
+            <th scope="col">Delete</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for user in users %}
+            <tr id="galleryTable">
+                <th>{{ user.id }}</th>
+                <td><img src="{{ asset('assets/images/profile/' ~ user.image ) }}" alt="" width="60px" /></td>
+                <td>{{ user.name }}</td>
+                <td>{{ user.username }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.roles[0]|slice(5)|capitalize }}</td>
+                <td>
+                    {% if ('ADMIN' in user.roles[0]) %}
+                        <a href="{{ path('users_ungrant', {'id': user.id}) }}" class="btn btn-outline-secondary" style="font-size: 24px;"><i class="fa fa-user-times" aria-hidden="true"></i></a>
+                    {% else %}
+                        <a href="{{ path('users_grant', {'id': user.id}) }}" class="btn btn-outline-success" style="font-size: 24px;"><i class="fa fa-user-plus" aria-hidden="true"></i></a>
+                    {% endif %}
+                </td>
+                <td>
+                    <form method="post" action="{{ path('users_delete', {'id': user.id}) }}" onsubmit="return confirm('Are you sure you want to delete this user?');">
+                        <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ user.id) }}">
+                        <button class="btn btn-danger" style="background-color: #dc3545; color: white; font-size: 24px;"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                    </form>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

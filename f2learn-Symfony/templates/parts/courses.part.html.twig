@@ -1,0 +1,45 @@
+<table class="table table-hover" style="margin-bottom: 80px;">
+    <thead>
+    <tr>
+        <th scope="col"><a href="{{ path('add-course-order', {order: 'id'}) }}" title="Click to order by id">#</a></th>
+        <th scope="col"><a href="{{ path('add-course-order', {order: 'title'}) }}" title="Click to order by Title">Title</a></th>
+        <th scope="col">Image</th>
+        <th scope="col"><a href="{{ path('add-course-order', {order: 'description'}) }}" title="Click to order by Description">Description</a></th>
+        <th scope="col">Duration</th>
+        <th scope="col"><a href="{{ path('add-course-order', {order: 'level'}) }}" title="Click to order by Level">Level</a></th>
+        <th scope="col"><a href="{{ path('add-course-order', {order: 'language'}) }}" title="Click to order by Language">Language</a></th>
+        <th scope="col"><a href="{{ path('add-course-order', {order: 'students'}) }}" title="Click to order by Students">Students</a></th>
+        <th scope="col"><a href="{{ path('add-course-order', {order: 'assessments'}) }}" title="Click to order by Assessments">Assessments</a></th>
+        <th scope="col"><a href="{{ path('add-course-order', {order: 'instructor'}) }}" title="Click to order by Instructor">Instructor</a></th>
+        <th scope="col"><a href="{{ path('add-course-order', {order: 'price'}) }}" title="Click to order by Price">Price</a></th>
+        <th scope="col"></th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for course in courses %}
+    <tr id="galleryTable">
+        <th>{{ course.id }}</th>
+        <td>{{ course.title }}</td>
+        <td><img src="{{ asset('assets/images/courses/' ~ course.image ) }}"
+                 alt="{{ course.title }}"
+                 title="{{ course.title }}" width="60px" />
+        </td>
+        <td style="max-width: 150px;"><p style="white-space: nowrap; text-overflow: ellipsis; overflow: hidden;">{{ course.description }}</p></td>
+        <td>{{ course.duration }}</td>
+        <td>{{ course.level.name|capitalize }}</td>
+        <td>{{ course.language.name|capitalize }}</td>
+        <td>{{ course.students }}</td>
+        <td>{{ course.assessments.name|capitalize }}</td>
+        <td>{{ course.instructor.name|capitalize }}</td>
+        <td>{{ course.price }} €</td>
+        <td style="display: flex; flex-direction: row;">
+            <a href="{{ path('courses_edit', {'id': course.id}) }}" class="btn btn-warning mr-1" style="background-color: #007bff; color: white;"><i class="fa fa-edit" aria-hidden="true"></i></a>
+            <form method="post" action="{{ path('courses_delete', {'id': course.id}) }}" onsubmit="return confirm('Are you sure you want to delete this course?');">
+                <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ course.id) }}">
+                <button class="btn btn-danger" style="background-color: #dc3545; color: white;"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+            </form>
+        </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>

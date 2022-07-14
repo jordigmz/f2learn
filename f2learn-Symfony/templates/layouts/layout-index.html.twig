@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    {% include 'parts/stylesheets.part.html.twig' %}
+    <!-- REVOLUTION SLIDER CSS -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendors/revolution/css/layers.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendors/revolution/css/settings.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendors/revolution/css/navigation.css') }}">
+    <!-- REVOLUTION SLIDER END -->
+{% endblock %}
+
+{% block menu %}
+    {% include 'parts/menu-index.part.html.twig' %}
+{% endblock %}
+
+{% block body %}{% endblock %}
+
+{% block footer %}
+
+    {% include 'parts/footer.part.html.twig' %}
+
+    {% include 'parts/slideJS.part.html.twig' %}
+
+{% endblock %}
